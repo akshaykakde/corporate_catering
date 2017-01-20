@@ -8,7 +8,7 @@ class Vendor
 	validates :phone_no,numericality:{only_integer:true}
 
 
-	has_many :addresses
+	has_many :addresses, as: :location
 
 
 

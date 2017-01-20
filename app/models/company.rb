@@ -12,5 +12,5 @@ class Company
 	validates :phone_no,numericality:{only_integer:true}
 	validates :email, presence: true, email: true
 
-	has_one :address
+	has_one :address, as: :location
 end
