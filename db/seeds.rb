@@ -5,13 +5,13 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-		 company1 = Company.find_or_create_by!({name:"Josh Software",email:"all@joshsoftware.com",phone_no:9867542190})
+   company1 = Company.find_or_create_by!({name:"Josh Software",email:"all@joshsoftware.com",phone_no:9867542190})
    company2 = Company.find_or_create_by!({name: "Veritas",email:"all@veritas.com",phone_no:9867542195})
    company3 = Company.find_or_create_by!({name: "Pubmatic",email:"all@pubmatic.com",phone_no:9867542196})
    company4 = Company.find_or_create_by!({name: "Symantec",email:"all@symantec.com",phone_no:9867542197})
    company5 = Company.find_or_create_by!({name: "Agrostar",email:"all@agrostar.com",phone_no:9867542198})
 
-	   company1.create_address({house_no:"GHIB92",locality:"kupwad",city:"Sangli",state:"Maharashtra",pincode:416415}) 						if company1.address.blank?
+   company1.create_address({house_no:"GHIB92",locality:"kupwad",city:"Sangli",state:"Maharashtra",pincode:416415}) 						if company1.address.blank?
    company2.create_address({house_no:"WNIB42",locality:"Kharadi",city:"Panji",state:"Goa",pincode:411045}) 										if company2.address.blank?
    company3.create_address({house_no:"WNk086",locality:"Aagarkar Nagar",city:"Indore",state:"Madhya Pradesh",pincode:419045}) if company3.address.blank?
    company4.create_address({house_no:"WYKJK2",locality:"Majage Nagar",city:"Pune",state:"Maharashtra",pincode:411045}) 				if company4.address.blank?
