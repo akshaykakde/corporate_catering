@@ -38,7 +38,7 @@ class User
   field :name, type: String
   field :role, type: String
   field :phone, type: Integer
-  validates_presence_of :name, :role, :phone
-  validates_uniqueness_of :phone, :email, :case_sensitive => false
+  validates :name, :role, :phone, presence: true
+  validates :phone, :email, uniqueness: { case_sensitive: false }
   #attr_accessible :name, :phone, :role, :email, :password, :password_confirmation, :remember_me
 end
