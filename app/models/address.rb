@@ -8,7 +8,6 @@ class Address
   field :state ,type: String
 
   validates :house_no ,:locality ,:city, :pincode, :state, presence:true
- 
   
   belongs_to :location,polymorphic: true
   belongs_to :location,polymorphic: true
