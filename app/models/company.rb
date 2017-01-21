@@ -1,3 +1,4 @@
+
 # company class for storing records of companies
 class Company
   require 'emailvalidator'
