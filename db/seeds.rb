@@ -17,11 +17,11 @@
    company4.create_address({ house_no: "WYKJK2", locality: "Majage Nagar", city: "Pune", state: "Maharashtra", pincode: 411045 }) if company4.address.blank?
    company5.create_address({ house_no: "WNIB42", locality: "Vishrambag", city: "Solapur", state: "Maharashtra", pincode: 418945 }) if company5.address.blank?
    
-   vendor1 = Vendor.find_or_create_by({ name: "Foodpanda", phone_no: 7798845221 })
-   vendor2 = Vendor.find_or_create_by({ name: "chaitanyaP", phone_no: 7798845222 })
-   vendor3 = Vendor.find_or_create_by({ name: "Venkys", phone_no: 7798845223 })
-   vendor4 = Vendor.find_or_create_by({ name: "Rollsmania", phone_no: 7798845224 })
-   vendor5 = Vendor.find_or_create_by({ name: "Dominoz", phone_no: 7798845225 })
+   vendor1 = Vendor.find_or_create_by({ name: "Foodpanda", phone_no: 7798845221, logo: "/app/assets/images/seed/foodpandalogo.jpg" })
+   vendor2 = Vendor.find_or_create_by({ name: "chaitanyaP", phone_no: 7798845222, logo: "/app/assets/images/seed/parathalogo.png" })
+   vendor3 = Vendor.find_or_create_by({ name: "Venkys", phone_no: 7798845223, logo: "/app/assets/images/seed/vankylogo.jpg" })
+   vendor4 = Vendor.find_or_create_by({ name: "Rollsmania", phone_no: 7798845224, logo: "/app/assets/images/seed/rollsmania.jpg" })
+   vendor5 = Vendor.find_or_create_by({ name: "Dominoz", phone_no: 7798845225, logo: "/app/assets/images/seed/dominozlogo.jpg" })
 
    vendor1.addresses.find_or_create_by({ house_no: 'GHIB93', locality: 'kupwad',city: "Sangli", state: "Maharashtra", pincode: 416415 })
    vendor2.addresses.find_or_create_by({ house_no: 'WNIB43', locality: 'Kharadi',city: "Panji", state: "Goa", pincode: 411045 })
