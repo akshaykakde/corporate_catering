@@ -1,3 +1,4 @@
+# class to store addresses
 class Address
   include Mongoid::Document
 
@@ -7,6 +8,8 @@ class Address
   field :pincode, type: Integer
   field :state, type: String
 
-  validates :house_no,:locality,:city,:pincode,:state,presence:true
-
+  validates :house_no, :locality, :city, :pincode, :state, presence: true
+  
+  belongs_to :location, polymorphic: true
+  belongs_to :location, polymorphic: true
 end
