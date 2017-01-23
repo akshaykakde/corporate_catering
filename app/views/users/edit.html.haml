@@ -1,0 +1,8 @@
+
+.col-sm-10.radio-toolbar
+= simple_form_for ([@user.company,@user]) do |f|
+	=f.label :active
+	=f.check_box :active, {}, true
+
+	=f.submit "submit"
+

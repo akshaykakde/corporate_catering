@@ -13,4 +13,6 @@ class Company
   validates :email, presence: true, email: true
 
   has_one :address, as: :location
+  has_many :users
+  
 end
