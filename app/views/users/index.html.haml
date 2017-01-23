@@ -8,21 +8,25 @@
       %li
         %a{:href =>new_company_user_path} Create
 
-%h2{:alignment => 'centre'} LISTING!
-%table{:border =>3}
-  %tbody
-    %tr
-      %td NAME:
-      %td active:
-      
-    - @users.each do |user|
-      %tr
-        %td= user.name
-        %td= user.active
-        
+%h1.text-center LISTING!
+%table{:border =>3,:class => 'col-md-offset-4 table-active',width: 350}
 
-        %td= link_to "show",company_user_path(@company.id,user.id),:class=> 'btn btn-primary'
-        %td= link_to "Edit",edit_company_user_path(@company.id,user.id),:class=> 'btn btn-primary'
+  /.table-bordered
+  .table-hover
+  
+    %tbody
+      %tr
+        %td NAME:
+        %td active:
+        
+      - @users.each do |user|
+        %tr
+          %td= user.name
+          %td= user.active
+          
+
+          %td= link_to "show",company_user_path(@company.id,user.id),:class=> 'btn btn-success btn-md btn-block'
+          %td= link_to "Edit",edit_company_user_path(@company.id,user.id),:class=> 'btn btn-info btn-block'
 
 
 

@@ -7,9 +7,8 @@ end
 
 gem 'devise'
 gem 'haml-rails'
-#gem 'autoprefixer-rails','~> 6.7.0'
 gem 'simple_form'
-
+gem 'bootstrap-sass', '~> 3.3.6'
 gem 'mongoid', '~> 6.0.0'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.0.1'
