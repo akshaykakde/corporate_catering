@@ -11,7 +11,7 @@ class Users::SessionsController < Devise::SessionsController
     @current_user = params[:user][:email]
     @user = User.find_by(email:@current_user)
     if(@user.role =="hr")
-      redirect_to users_welcome_path
+      redirect_to new_user_invitation_path
     else
       render :action => "new"
     end
