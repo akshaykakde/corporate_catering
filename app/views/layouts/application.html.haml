@@ -7,12 +7,6 @@
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
   %body
-    - if current_user
-      = link_to 'Log out', destroy_user_session_path, method: :delete
-    - if notice
-      %p.alert.alert-success= notice
-    - if alert
-      %p.alert.alert-danger= alert
     %nav.navbar.navbar-inverse
       .container-fluid
         .navbar-header
@@ -30,11 +24,20 @@
               %a{:href => "#"} Contact
           %ul.nav.navbar-nav.navbar-right
             %li
-              %a{:href => new_user_session_path}
-                %span.glyphicon.glyphicon-log-in
-                Login
+              - if !user_signed_in?
+                %a{:href => new_user_session_path}
+                  %span.glyphicon.glyphicon-log-in
+                  Login
+              - if user_signed_in?
+                = link_to destroy_user_session_path, method: :delete do 
+                  %span.glyphicon.glyphicon-log-out
+                  Logout
     = yield 
     %footer.container-fluid.text-center
+      - if notice
+        %p.alert.alert-success= notice
+      - if alert
+        %p.alert.alert-danger= alert
       .strong
         %p
           %strong @Copyright Corporate Catering
