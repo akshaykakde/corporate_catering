@@ -6,16 +6,26 @@
       .container 
         .jumbotron
           =image_tag(v.logo,size:"150",alt:"Vendor Logo", class: "img-rounded pull-right")
-          %h2= v.name
-          = link_to "Show menu",'javascript:void(0)',"data-toggle" => "collapse", 'data-target' => '#' + v.name.gsub(" ","_"), :class => "btn-primary btn-lg"
-        .collapse{"id" => v.name.gsub(" ","_")}
-          %div
-            %h3
-              List of menus
-            %h4
-              -v.menu_items.each do |menu|
-                =menu.name 
-                ="Price :" + menu.price
-                %input{"aria-label" => "...", :type => "checkbox"}/
-                %br
-    %button.btn.btn-success.btn-lg.center-block{:type => "submit"} Submit
+          %h2
+            %input{"aria-label" => "...", :type => "checkbox"}/           
+            = v.name 
+            %br 
+            %br
+            = link_to "Show menu",'javascript:void(0)',"data-toggle" => "collapse", 'data-target' => '#' + v.name.gsub(" ","_"), :class => "btn-info btn-lg"
+          .collapse{"id" => v.name.gsub(" ","_")}
+            %div
+              %h3
+                List of menus
+              %h4
+                %table.table.table-striped
+                  %tbody
+                  %tr
+                    %th Menu:
+                    %th Price:
+                  -v.menu_items.each do |menu|
+                    %tr  
+                    %td=menu.name 
+                    %td=menu.price
+            %br    
+    .container
+      =link_to "submit", select_vendors_path, :method => 'post',:type => "submit", :class => "btn btn-success pull-right btn-lg"

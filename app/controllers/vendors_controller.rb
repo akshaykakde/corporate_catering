@@ -3,7 +3,12 @@ class VendorsController < ApplicationController
 	end	
 
 	def index
-	 @vendors=Vendor.all
-	end	
+	 @vendors = Vendor.all
+
+	end
+
+
+  def select_vendors
+  end  
 
 end
