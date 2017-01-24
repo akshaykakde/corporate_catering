@@ -1,18 +1,18 @@
 =link_to "Create",new_company_path
- 
 %h2 Companies 
-%table{:border =>3}
+%table.table{:border =>3,:align => "center",:style=>"width:60%"}
   %tbody
     %tr
-      %td NAME:
-      
+    %td NAME:
+          
     - @company.each do |company|
       %tr
         %td= company.name
-        
+            
         -$name= company.name
-        %td= link_to "show",company_path(company.id), :class=> 'btn btn-primary'
-        %td= link_to "Edit",edit_company_path(company.id), :class=> 'btn btn-success'
-        %td= link_to "delete",company_path(company.id),method: :delete,data: { confirm: 'Are you sure?' },:remote =>true, :class=> 'btn btn-danger'
-        %td= link_to "Employees", company_users_path(company.id), :class=> 'btn btn-info'
+        %td= link_to "show",company_path(company.id), :class=> 'btn btn-success btn-block'
+        %td= link_to "Edit",edit_company_path(company.id), :class=> 'btn btn-info btn-block'
+        %td= link_to "delete",company_path(company.id),method: :delete,data: { confirm: 'Are you sure?' },:remote =>true, :class=> 'btn btn-success btn-block'
+        %td= link_to "Employees", company_users_path(company.id), :class=> 'btn btn-info btn-block'
+
 

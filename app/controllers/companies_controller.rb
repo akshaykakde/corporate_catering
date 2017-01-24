@@ -1,5 +1,4 @@
 class CompaniesController < ApplicationController
-
   def new
     @company = Company.new
   end
@@ -33,8 +32,8 @@ class CompaniesController < ApplicationController
     
   end
 
-  def destroy
-    @company = Company.find(params[:id])
+  def company
+    @destroy = Company.find(params[:id])
     @company.destroy
     p "=============RECORD IS DESTROYED====================="
    #  respond_to do |format|
@@ -50,6 +49,11 @@ class CompaniesController < ApplicationController
 
   def index
     @company = Company.all
+    respond_to do |format|
+      @company = @company.page(params[:page])
+      format.html # index.html.erb
+      format.json { render json: @company }
+    end
   end 
 
   def show

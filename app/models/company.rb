@@ -1,6 +1,7 @@
 
 # company class for storing records of companies
 class Company
+ 
   require 'emailvalidator'
   include Mongoid::Document
   field :name, type: String

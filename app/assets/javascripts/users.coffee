@@ -1,3 +1,14 @@
-# Place all the behaviors and hooks related to the matching controller here.
-# All this logic will automatically be available in application.js.
-# You can use CoffeeScript in this file: http://coffeescript.org/
+$ ->
+  $('.activate').on 'click', (e)->
+    element = $(this)
+    alert("helooo!!")
+    e.preventDefault()
+    $.ajax({
+      url: element.attr('href'),
+      type: 'PATCH'
+    }).done (html)->
+      tr = element.parents("tr");
+      alert("buffeelo!!")
+      tr.replaceWith(html);
+
+ 

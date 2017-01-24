@@ -1,0 +1,13 @@
+%tr
+  %td= user.name
+  %td= user.active
+
+  %td= link_to "show",company_user_path(@company.id,user.id),:class=> 'btn btn-success btn-md btn-block'
+  %td= link_to "Edit",edit_company_user_path(@company.id,user.id),:class=> 'btn btn-info btn-block'
+  %td= link_to "activate",company_user_path(@company.id,user.id, 'user[active]' => first_method?(user),'change_status' => 'true'), class: 'activate'
+ 
+
+  
+  
+
+   

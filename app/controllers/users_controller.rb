@@ -4,6 +4,8 @@ class UsersController < ApplicationController
   # if @current_user == "dummy"
   #   redirect_to @companies_path
   # end
+  
+
 
   def new
     @company = Company.find_by(id: params[:company_id])
@@ -33,7 +35,18 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
  
    if @user.update(user_params)
-      redirect_to company_users_path
+      # redirect_to company_users_path
+      p "@@@@@@@@@@@@@@@@@@@@@@@@"
+
+      p params[:change_status]
+      if params['change_status']
+        p "-------jssss------"; render partial: 'user_row', locals: {user: @user}
+
+      else
+        p "rrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr"
+        redirect_to company_users_path,notice: 'user was deleted!'
+      end
+       
    else
       flash[:error]= @user.errors.messages
       render :edit
