@@ -1,10 +1,42 @@
 %tr
-  %td= user.name
-  %td= user.active
 
-  %td= link_to "show",company_user_path(@company.id,user.id),:class=> 'btn btn-success btn-md btn-block'
-  %td= link_to "Edit",edit_company_user_path(@company.id,user.id),:class=> 'btn btn-info btn-block'
-  %td= link_to "activate",company_user_path(@company.id,user.id, 'user[active]' => first_method?(user),'change_status' => 'true'), class: 'activate'
+  %td= user.name
+  %td
+    =link_to company_user_path(@company.id,user.id) do
+      .text-center
+        %button.btn.btn-default{:type => "button"}
+          %span.glyphicon.glyphicon-eye-open>
+
+  
+
+  %td
+    =link_to edit_company_user_path(@company.id,user.id) do
+      .text-center
+        %button.btn.btn-default{:type => "button"}
+          %span.glyphicon.glyphicon-edit>
+
+  %td 
+    -if user.active == false
+      =link_to company_user_path(@company.id,user.id,'user[active]' => first_method?(user),'change_status' => 'true'), class: 'activate' do
+        .text-center
+          %button.btn.btn-default{:type => "button"}
+            %span.glyphicon.glyphicon-ok-circle>
+    -else 
+      =link_to company_user_path(@company.id,user.id,'user[active]' => first_method?(user),'change_status' => 'true') , class: 'activate' do
+        .text-center
+          %button.btn.btn-default{:type => "button"}
+            %span.glyphicon.glyphicon-remove-circle>
+
+  %td
+    .text-center
+      -if first_method?(user) 
+        = "ACTIVE"
+      -else 
+        = " NOT ACTIVE"
+
+
+
+
  
 
   

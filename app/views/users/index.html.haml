@@ -8,17 +8,36 @@
       %li
         %a{:href =>new_company_user_path} Create
 
+
 %h1.text-center LISTING!
-%table.table{:border =>3,:align => "center",:style=>"width:60%"}
+
+%table.table.table-striped{:border =>3,:align => "center",:style=>"width:50%"}
   .table-hover
   
     %tbody
       %tr
-        %th NAME:
-        %th ACTIVE:
+
+        %th 
+          .text-center
+            NAME:
+        %th
+          .text-center
+            SHOW: 
+        %th 
+          .text-center
+            EDIT: 
+        %th 
+          .text-center
+            ACTIVATE/DEACTIVATE
+        %th 
+          .text-center
+            STATUS
         
-        =render "commonindex" ,object: @user, as: 'user'  
-      
+      =render "commonindex" ,object: @user, as: 'user'  
+
+.text-center
+  = paginate @users, :theme =>'twitter-bootstrap-3'
+
 
 
 

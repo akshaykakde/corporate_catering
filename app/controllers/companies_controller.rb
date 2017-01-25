@@ -48,11 +48,11 @@ class CompaniesController < ApplicationController
   end
 
   def index
-    @company = Company.all
+    @companies = Company.all
     respond_to do |format|
-      @company = @company.page(params[:page])
+      @companies = @companies.page(1).per(5)
       format.html # index.html.erb
-      format.json { render json: @company }
+      format.json { render json: @companies }
     end
   end 
 

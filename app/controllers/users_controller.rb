@@ -83,7 +83,7 @@ class UsersController < ApplicationController
     @users = User.find_by(params[:company_id]).first
 =end
     @company = Company.find_by(id: params[:company_id])
-    @users = @company.users
+    @users = @company.users.page(params[:page]).per(1)
     p @user, "1111"
   end 
 

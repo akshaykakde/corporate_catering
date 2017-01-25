@@ -4,10 +4,12 @@ git_source(:github) do |repo_name|
   repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?('/')
   "https://github.com/#{repo_name}.git"
 end
+gem "kaminari"
+
+gem "bootstrap-kaminari-views"
+gem "kaminari-mongoid"
 
 gem 'pry'
-gem 'kaminari'
-gem "will_paginate_mongoid"
 gem 'devise'
 gem 'haml-rails'
 gem 'simple_form'
