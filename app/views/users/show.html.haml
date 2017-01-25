@@ -1,29 +1,42 @@
+%h1.text-center DETAILS
+
 %ul.pager
   .row
     .col-md-2
       %li
         %a{:href =>company_users_path} Back
-/ = link_to "BACK", company_users_path do
-/   %button.btn.btn-default{:type => "button"}
-      
 
 
-%h1.text-center LISTING!
 %table.table{:border =>3,:align => "center",:style=>"width:60%"}
   
   %tbody
     %tr
-      %th NAME:
-      %th EMAIL:
-      %th PHONENO:
-      %th ACTIVE :
-   
-  
+      %th 
+        .text-center 
+          NAME
+      %th 
+        .text-center
+          EMAIL
+      %th 
+        .text-center
+          PHONE NUMBER
+      %th 
+        .text-center
+          ACTIVE 
+
       %tr
-        %td= @user.name
-        %td= @user.email
-        %td= @user.phone_no
-        %td= @user.active
+        %td
+          .text-center
+            #{@user.name}
+        %td
+          .text-center
+            #{@user.email}
+        %td
+          .text-center
+            #{@user.phone_no}
+        %td
+          .text-center
+            #{@user.active}
     
         
 

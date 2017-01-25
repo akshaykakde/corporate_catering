@@ -16,13 +16,11 @@ class UsersController < ApplicationController
     @company = Company.find_by(id: params[:company_id])
     @user = @company.users.create(user_params)
     if @user.valid?
-      p "valid hai!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
       p params[:user]
 
       @user.save
       redirect_to company_users_path
     else
-      p "valid nahi hai!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
       p params[:user]
       flash[:error]=  @user.errors.messages
       render :new 
@@ -35,15 +33,12 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
  
    if @user.update(user_params)
-      # redirect_to company_users_path
-      p "@@@@@@@@@@@@@@@@@@@@@@@@"
 
       p params[:change_status]
       if params['change_status']
-        p "-------jssss------"; render partial: 'user_row', locals: {user: @user}
+        render partial: 'user_row', locals: {user: @user}
 
       else
-        p "rrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr"
         redirect_to company_users_path,notice: 'user was deleted!'
       end
        
@@ -59,36 +54,14 @@ class UsersController < ApplicationController
     
   end
 
-  # def destroy
-  #   @user = user.find(params[:id])
-  #   @user.destroy
-  #   respond_to do |format|
-  #     format.html { redirect_to companies_url,notice: 'user was deleted!'}
-  #     format.json {  redirect_to companies_path,notice: 'user was deleted!'}
-  #     format.js   {  redirect_to companies_path,notice: 'user was deleted!'}
-  #  end
-    # format.html{redirect_to companies_path,notice: 'user was deleted!'}
-    # format.json{render json: @user,status: :deleted,location: @user}
-  #   userMailer.account_deletion(@user).deliver_now    
-  #   redirect_to companies_path
-  # end
-
-
-
-
   def index
-=begin    @company = Company.where(params[:company_id])
 
-    # @user = {}
-    @users = User.find_by(params[:company_id]).first
-=end
     @company = Company.find_by(id: params[:company_id])
-    @users = @company.users.page(params[:page]).per(1)
-    p @user, "1111"
+    @users = @company.users.page(params[:page]).per(5)
+    
   end 
 
   def show
-    p @users, "222"
     @company = Company.find_by(id: params[:company_id])
     @user = User.find_by(id: params[:id])
 
