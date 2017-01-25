@@ -5,7 +5,9 @@ Rails.application.routes.draw do
   devise_for :users, :skip => [:registrations] 
 
   resources :companies do
-    resources :users
+    resources :users do
+      get 'search', :on => :collection
+    end
   end
 
   as :user do

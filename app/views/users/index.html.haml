@@ -1,5 +1,12 @@
 %h1.text-center EMPLOYEES
 
+.container-fluied
+  .row
+    .col-md-9.col-sm-7
+    .col-md-3.col-sm-3
+      %form{"accept-charset" => "UTF-8", :action => "users/search", :method => "get"}
+        %input#q{:name => "search_value", :type => "text"}
+        %input{:name => "commit", :type => "submit", :value => "Search"}
 %br
 %br
 %br
