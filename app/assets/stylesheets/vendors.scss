@@ -1,3 +1,32 @@
 // Place all the styles related to the Vendors controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+ 
+.button {
+    color: black;
+}
+.thumbnail .image
+{
+  height: 150px;
+}
+td,th {
+  padding: 5px;
+  cellspacing: 5px;
+  cellpadding: 5px;
+}
+.modal-content{
+  width:300px;
+  height:300px;
+}
+
+.modal.in .modal-dialog{
+  display: inline-block;
+  top:10%;
+  left:40%;
+  overflow-y: initial !important
+}
+
+.tab-content{
+  overflow-y: auto;
+}
+

@@ -8,7 +8,7 @@
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
   %body
     %nav.navbar.navbar-inverse
-      .container-fluid
+      .container
         .navbar-header
           %button.navbar-toggle{"data-target" => "#myNavbar", "data-toggle" => "collapse", :type => "button"}
             %span.icon-bar
@@ -21,14 +21,17 @@
             %li.active
               %a{:href => "#"} Home
             %li
-              %a{:href => "#"} Contact
+              %a{:href => '#'} Contact
           %ul.nav.navbar-nav.navbar-right
             %li
               %a{:href => "#"}
                 %span.glyphicon.glyphicon-log-in
                 Login
-    = yield 
-    %footer.container-fluid.text-center
-      .strong
-        %p
-          %strong @Copyright Corporate Catering
+    .container
+      .row
+        .col-sm-12
+          = yield 
+    / %footer.container-fluid.text-center
+    /   .strong
+    /     %p
+    /       %strong @Copyright Corporate Catering
