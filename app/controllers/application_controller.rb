@@ -1,8 +1,16 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
+  before_filter :configure_permitted_parameters, if: :devise_controller? 
+  def after_sign_in_path_for(resource)
+    if resource.role == 'hr'
+      users_hr_dashboard_path
+    else
+      current_user_path
+    end
+  end
 
-  def after_sign_in_path(resource)
-    current_user_path
+  def configure_permitted_parameters
+    devise_parameter_sanitizer.permit(:invite, keys: [:name, :phone, :email, :role])
   end
 
   private
