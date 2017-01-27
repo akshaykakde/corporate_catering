@@ -3,8 +3,7 @@ class Order
   include Mongoid::Document
   include Mongoid::Attributes::Dynamic
 
-  field :date, type: Date
-  field :time, type: Time
+  field :date, type: DateTime
 
   validates :date, :time, presence: true
   has_and_belongs_to_many :menu_items
