@@ -31,30 +31,12 @@
                               %span{"aria-hidden" => "true"} ×
                             %h4.modal-title List of Menus
                           .modal-body
-                            %div
-                              %ul.nav.nav-tabs{:role => "tablist"}
-                                %li.active{:role => "presentation"}
-                                  %a{"aria-controls" => "veg", "data-toggle" => "tab", :href => "#Veg", :role => "tab"} Veg
-                                %li{:role => "presentation"}
-                                  %a{"aria-controls" => "nonveg", "data-toggle" => "tab", :href => "#Non-Veg", :role => "tab"} Non-Veg
-                              .tab-content
-                                #Veg.tab-pane.active{:role => "tabpanel"}
-                                  %table 
-                                    %tbody
-                                    %tr
-                                      %th Menu:
-                                      %th Price:
-                                    -v.menu_items.veg.each do |menu|
-                                      %tr{:padding =>"5px"} 
-                                      %td=menu.name 
-                                      %td=menu.price                  
-                                #Non-Veg.tab-pane{:role => "tabpanel"}
-                                  %table
-                                    %tbody
-                                    %tr
-                                      %th Menu:
-                                      %th Price:
-                                    -v.menu_items.non_veg.each do |menu|
-                                      %tr  
-                                      %td=menu.name 
-                                      %td=menu.price
+                            %table 
+                              %tbody
+                              %tr
+                                %th Menu:
+                                %th Price:
+                              -v.menu_items.each do |menu|
+                                %tr{:padding =>"5px"} 
+                                %td=menu.name 
+                                %td=menu.price                  

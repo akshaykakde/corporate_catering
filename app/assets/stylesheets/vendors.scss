@@ -17,6 +17,7 @@ td,th {
 .modal-content{
   width:300px;
   height:300px;
+  overflow-y: auto;
 }
 
 .modal.in .modal-dialog{
@@ -24,9 +25,5 @@ td,th {
   top:10%;
   left:40%;
   overflow-y: initial !important
-}
-
-.tab-content{
-  overflow-y: auto;
 }
 

@@ -14,4 +14,5 @@ class Company
 
   has_and_belongs_to_many :vendors
   has_one :address, as: :location
+  has_many :users
 end
