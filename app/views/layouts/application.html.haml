@@ -1,11 +1,11 @@
 !!!
 %html
   %head
-    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
     %title CorporateCatering
     = csrf_meta_tags
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+  = stylesheet_link_tag "home"   
   %body
     %nav.navbar.navbar-inverse
       .container-fluid
@@ -38,6 +38,7 @@
         %p.alert.alert-success= notice
       - if alert
         %p.alert.alert-danger= alert
+    =render "fixednavbar"
       .strong
         %p
           %strong @Copyright Corporate Catering
