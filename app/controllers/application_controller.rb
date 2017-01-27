@@ -4,8 +4,11 @@ class ApplicationController < ActionController::Base
   def after_sign_in_path_for(resource)
     if resource.role == 'hr'
       users_hr_dashboard_path
+    elsif resource.active == true && resource.role == 'employee'
+      # enter ordering page here
     else
       current_user_path
+      p "Give error msg that you are not an active member of this company"
     end
   end
 

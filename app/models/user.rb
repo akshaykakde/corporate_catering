@@ -46,9 +46,14 @@ class User
   ##fields
   field :name, type: String
   field :role, type: String
-  field :phone, type: Integer
-  validates :name, :role, :phone, presence: true
-  validates :phone, :email, uniqueness: { case_sensitive: false }
+  field :phone_no, type: Integer
+  field :active, type: Boolean
+
+  validates :name, :role, :phone_no, presence: true
+  validates :phone_no, :email, uniqueness: { case_sensitive: false, scopes: :company_id }
+  validates :name, case_sensitive: false
+
+
   has_and_belongs_to_many :orders
   belongs_to :company 
   #attr_accessible :name, :phone, :role, :email, :password, :password_confirmation, :remember_me

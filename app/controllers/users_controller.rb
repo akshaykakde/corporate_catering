@@ -1,6 +1,8 @@
 class UsersController < ApplicationController
   def create
-    User.create(user_params)
+    u =  User.create(user_params)
+    puts u.as_json
+    puts u.persisted?
   end
 
   def index
