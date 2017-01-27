@@ -15,7 +15,8 @@ class Company
   validates :phone_no, :email,:name,uniqueness: { case_sensitive: false }
 
 
+  has_and_belongs_to_many :vendors
   has_one :address, as: :location
   has_many :users
-  
+
 end

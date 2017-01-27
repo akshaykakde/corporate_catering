@@ -1,11 +1,4 @@
 class UsersController < ApplicationController
-  # before_action :authenticate_user!
-
-  # if @current_user == "dummy"
-  #   redirect_to @companies_path
-  # end
-  
-
 
   def new
     @company = Company.find_by(id: params[:company_id])
@@ -77,15 +70,9 @@ class UsersController < ApplicationController
 
   end
 
-  
-
-
   private
   def user_params
     params.require(:user).permit(:name,:email,:active,:role,:password,:phone_no)
   end
-
-
-
 
 end

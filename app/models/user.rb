@@ -41,10 +41,11 @@ class User
 
 
   validates :name, :active,  :role, :phone_no, presence: true
-  validates :phone_no, :email, uniqueness: { case_sensitive: false }
-  #attr_accessible :name, :phone, :role, :email, :password, :password_confirmation, :remember_me
+  field :phone, type: Integer
+  validates :phone, :email, uniqueness: { case_sensitive: false }
+  has_and_belongs_to_many :orders
+  belongs_to :company 
 
-  belongs_to :company
 
   has_one :address, as: :location
 

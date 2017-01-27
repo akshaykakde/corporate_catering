@@ -5,14 +5,17 @@
   margin-bottom: 0;
   border-radius: 0;
 }
-
-.row.content {
-  height: 450px
+body .container-fluid {
+padding: 5%;
 }
+
+
 body {
-  background: url("bg5.jpg");
+  background: url(bg5.jpg) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
   background-size: cover;
-  background-repeat: no-repeat;
 }
 
 
@@ -20,6 +23,11 @@ body {
 footer {
   background-color: #8500;
   position: absolute:
+}
+  
+footer {
+  background-color: #8500;
+  position: fixed;
   right: 0;
   bottom: 0;
   left: 0;

@@ -1,15 +1,14 @@
 !!!
 %html
-  / = stylesheet_link_tag "home"
   %head
-    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
     %title CorporateCatering
     = csrf_meta_tags
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+  = stylesheet_link_tag "home"   
   %body
     %nav.navbar.navbar-inverse
-      .container-fluid
+      .container
         .navbar-header
           %button.navbar-toggle{"data-target" => "#myNavbar", "data-toggle" => "collapse", :type => "button"}
             %span.icon-bar
@@ -22,14 +21,21 @@
             %li.active
               %a{:href => "#"} Home
             %li
-              %a{:href => "#"} Contact
+              %a{:href => '#'} Contact
           %ul.nav.navbar-nav.navbar-right
             %li
               %a{:href => "#"}
                 %span.glyphicon.glyphicon-log-in
                 Login
+    .container
+      .row
+        .col-sm-12
+          = yield 
+
+    =render "fixednavbar"
     = yield 
-    %footer.container-fluid.text-center
+    %footer.container.text-center
       .strong
         %p
           %strong @Copyright Corporate Catering
+
