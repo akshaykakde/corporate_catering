@@ -27,42 +27,23 @@ class CompaniesController < ApplicationController
   end
 
   def edit
-
     @company = Company.find(params[:id])
-    
-  end
-
-  def company
-    @destroy = Company.find(params[:id])
-    @company.destroy
-    p "=============RECORD IS DESTROYED====================="
-   #  respond_to do |format|
-   #    format.html { redirect_to companies_url,notice: 'Company was deleted!'}
-   #    format.json {  redirect_to companies_path,notice: 'Company was deleted!'}
-   #    format.js   {  redirect_to companies_path,notice: 'Company was deleted!'}
-   # end
-    # format.html{redirect_to companies_path,notice: 'Company was deleted!'}
-    # format.json{render json: @company,status: :deleted,location: @company}
-    # CompanyMailer.account_deletion(@company).deliver_now    
-    redirect_to companies_path
   end
 
   def index
     @companies = Company.all
     respond_to do |format|
       @companies = @companies.page(1).per(5)
-      format.html # index.html.erb
+      format.html
       format.json { render json: @companies }
     end
   end 
 
   def show
     @company = Company.find(params[:id])
-    #redirect_to companies_path
   end
 
   private
-
   def company_params
     params.require(:company).permit(:name,:email,:phone_no)
   end
