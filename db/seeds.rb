@@ -29,4 +29,22 @@
    vendor4.addresses.find_or_create_by({ house_no: 'WYKJK3', locality: 'Majage Nagar', city: "Pune", state: "Maharashtra", pincode: 411045 })
    vendor5.addresses.find_or_create_by({ house_no: 'WNIB43', locality: 'Vishrambag', city: "Solapur", state: "Maharashtra", pincode: 418945 })
 
+   user1 = User.find_or_create_by!({ name: "Ankit Sharma", email: "ankit@gmail.com", phone_no: 9867542191,company_id: company1.id,active: true,role: "Employee",password: "12345fdfd" })
+   user2 = User.find_or_create_by!({ name: "Sanjeev Nath", email: "sanjeev@gmail.com", phone_no: 9867542196 ,active: true,role: "Employee",company_id: company2.id,password: "heyyfddo"})
+   user3 = User.find_or_create_by!({ name: "Sapna Kumari", email: "sapna@gmail.com", phone_no: 9867542199,active: true,role: "Employee",company_id: company3.id ,password: "yesmandfdf"})
+   user4 = User.find_or_create_by!({ name: "Namrata Bhat", email: "nambhat@gmail.com", phone_no: 9867542197,active: true,role: "Employee",company_id: company4.id,password: "23456777" })
+   user5 = User.find_or_create_by!({ name: "Deepak Sharma", email: "deepu@gmail.com", phone_no: 9867542190 ,active: true,role: "Employee",company_id: company4.id,password: "pjoonefdf"})    
+
+
+
+
+
+   user1.create_address({ house_no: "GHIB94", locality: "kupwad", city: "Sangli", state: "Maharashtra", pincode: 416415 }) if user1.address.blank?
+   user2.create_address({ house_no: "WNIB44", locality: "Kharadi", city: "Panji", state: "Goa", pincode: 411045 }) if user2.address.blank?
+   user3.create_address({ house_no: "WNk084", locality: "Aagarkar Nagar", city: "Indore", state: "Madhya Pradesh", pincode: 419045 }) if user3.address.blank?
+   user4.create_address({ house_no: "WYKJK4", locality: "Majage Nagar", city: "Pune", state: "Maharashtra", pincode: 411045 }) if user4.address.blank?
+   user5.create_address({ house_no: "WNIB44", locality: "Vishrambag", city: "Solapur", state: "Maharashtra", pincode: 418945 }) if user5.address.blank?
+
+   
+
 # company5.addresses.find_or_create_by({house_no:"WNIB42",locality:"Hadapsar",city:"Mumbai",state:"Maharashtra",pincode:411046})

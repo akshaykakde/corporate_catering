@@ -5,7 +5,7 @@
     .col-md-9.col-sm-7
     .col-md-3.col-sm-3
       %form{"accept-charset" => "UTF-8", :action => "users/search", :method => "get"}
-        %input#q{:name => "search_value", :type => "text"}
+        %input#q{:name => "search_value", :type => "text",:required => true,:placeholder => "Enter the name..."}
         %input{:name => "commit", :type => "submit", :value => "Search"}
 %br
 %br

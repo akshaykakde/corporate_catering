@@ -68,11 +68,11 @@ class UsersController < ApplicationController
   end
 
   def search
+    
     @search_value = params[:search_value]
     @company = Company.find_by(id: params[:company_id])
     @users = @company.users.where(:name => /#{@search_value}/i).all.page(params[:page]).per(5)
-    p "user  === ",@users[1]
-    render :index
+    render :search
 
 
   end
