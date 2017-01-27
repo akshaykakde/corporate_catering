@@ -1,0 +1,42 @@
+=stylesheet_link_tag 'vendors'
+.page-header
+  %h1
+    Available Vendor
+    %small Select MenuItems
+    .container
+      .row
+      %div.some{:style => "padding: 204*406"}
+        - @vendors.each do |v|
+          =simple_form_for :vendor, url: select_vendors_path do |f|
+            .col-md-3.col-sm-6
+              .thumbnail.some{:style => "height: 250px"}
+                =image_tag(v.logo, alt:"Vendor Logo", class:"image")
+                .caption
+                  %h4
+                    =v.name
+                    %br
+                    =f.hidden_field :vendors_selected, :value => v.id
+                    .row
+                      .col-md-6
+                        .btn
+                          =f.button :submit,"Add"
+                      .col-md-6  
+                        .btn.btn-default
+                          =link_to "Show menu",'javascript:void(0)',{'data-target'=> '#' + v.name.gsub(" ","_"),'data-toggle' =>  "modal"}
+                    .modal.fade{:role => "dialog", :id => v.name.gsub(" ","_"), :role => "dialog"}
+                      .modal-dialog{:role => "document"}
+                        .modal-content
+                          .modal-header
+                            %button.close{"aria-label" => "Close", "data-dismiss" => "modal", :type => "button"}
+                              %span{"aria-hidden" => "true"} ×
+                            %h4.modal-title List of Menus
+                          .modal-body
+                            %table 
+                              %tbody
+                              %tr
+                                %th Menu:
+                                %th Price:
+                              -v.menu_items.each do |menu|
+                                %tr{:padding =>"5px"} 
+                                %td=menu.name 
+                                %td=menu.price                  

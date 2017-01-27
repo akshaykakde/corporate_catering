@@ -49,5 +49,7 @@ class User
   field :phone, type: Integer
   validates :name, :role, :phone, presence: true
   validates :phone, :email, uniqueness: { case_sensitive: false }
-  # attr_accessible :name, :phone, :role, :email, :password, :password_confirmation, :remember_me
+  has_and_belongs_to_many :orders
+  belongs_to :company 
+  #attr_accessible :name, :phone, :role, :email, :password, :password_confirmation, :remember_me
 end
