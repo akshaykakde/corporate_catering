@@ -1,9 +1,10 @@
 !!!
 %html
+  /= stylesheet_link_tag "home"   
   %head
     %title CorporateCatering
     = csrf_meta_tags
-    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = stylesheet_link_tag     'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
   = stylesheet_link_tag "home"   
   %body
@@ -32,8 +33,7 @@
         .col-sm-12
           = yield 
 
-    =render "fixednavbar"
-    = yield 
+    =render "shared/fixednavbar"
     %footer.container.text-center
       .strong
         %p

@@ -11,21 +11,21 @@
 %br
 %br
 .container-fluied
-  %table.table.table-striped.table-fixed{:border =>3,:align => "center",:style=>"width:50%"}
-    .table-hover
+  %table.table.table-fixed{:border =>3,:align => "center",:style=>"width:50%",fontsize: "150px"}
+   
     
-      %tbody
-        %tr
-          %th 
-            .text-center
-              NAME:
-          %th 
-            .text-center
-              STATUS
-          %th 
-            .text-center
-              ACTION
-          =render "commonindex" ,object: @user, as: 'user'  
+    %tbody
+      %tr
+        %th 
+          .text-center
+            NAME:
+        %th 
+          .text-center
+            STATUS
+        %th 
+          .text-center
+            ACTION
+        =render "commonindex" ,object: @user, as: 'user'  
 
 .text-center
   = paginate @users, :theme =>'twitter-bootstrap-3'

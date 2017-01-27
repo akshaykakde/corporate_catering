@@ -5,8 +5,7 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 gem "kaminari"
-
-gem "bootstrap-kaminari-views"
+  gem "bootstrap-kaminari-views"
 gem "kaminari-mongoid"
 
 gem 'pry'
