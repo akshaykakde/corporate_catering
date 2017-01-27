@@ -6,7 +6,7 @@ git_source(:github) do |repo_name|
 end
 
 gem 'devise'
-gem 'bootstrap-sass', '~> 3.3.6'
+gem 'devise_invitable'
 gem 'carrierwave', '~> 1.0'
 gem 'rubocop', '~> 0.47.1'  
 gem 'simple_form'

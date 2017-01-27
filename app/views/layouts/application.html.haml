@@ -8,7 +8,7 @@
   = stylesheet_link_tag "home"   
   %body
     %nav.navbar.navbar-inverse
-      .container
+      .container-fluid
         .navbar-header
           %button.navbar-toggle{"data-target" => "#myNavbar", "data-toggle" => "collapse", :type => "button"}
             %span.icon-bar
@@ -21,23 +21,24 @@
             %li.active
               %a{:href => "#"} Home
             %li
-              %a{:href => '#'} Contact
+              %a{:href => "#"} Contact
           %ul.nav.navbar-nav.navbar-right
             %li
-              %a{:href => "#"}
-                %span.glyphicon.glyphicon-log-in
-                Login
-    .container
-      .row
-        .col-sm-12
-          = yield 
-    / %footer.container-fluid.text-center
-    /   .strong
-    /     %p
-    /       %strong @Copyright Corporate Catering
-    =render "fixednavbar"
+              - if !user_signed_in?
+                %a{:href => new_user_session_path}
+                  %span.glyphicon.glyphicon-log-in
+                  Login
+              - if user_signed_in?
+                = link_to destroy_user_session_path, method: :delete do 
+                  %span.glyphicon.glyphicon-log-out
+                  Logout
     = yield 
-    %footer.container.text-center
+    %footer.container-fluid.text-center
+      - if notice
+        %p.alert.alert-success= notice
+      - if alert
+        %p.alert.alert-danger= alert
+    =render "fixednavbar"
       .strong
         %p
           %strong @Copyright Corporate Catering
