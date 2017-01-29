@@ -7,6 +7,6 @@ class Vendor
   validates :name, presence: true
   validates :phone_no, length: { is: 10 }
   validates :phone_no, numericality: { only_integer: true }
-
+  has_many :menu_items  
   has_many :addresses, as: :location
 end

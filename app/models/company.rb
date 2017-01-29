@@ -11,6 +11,7 @@ class Company
   validates :phone_no, length: { is: 10 }
   validates :phone_no, numericality: { only_integer: true }
   validates :email, presence: true, email: true
-
+  validates :name,:email,:phone_no, uniqueness: true
+  has_many :users
   has_one :address, as: :location
 end
