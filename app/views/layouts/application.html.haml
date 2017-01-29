@@ -7,9 +7,16 @@
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
   = stylesheet_link_tag "home"   
   %body
+
     =render "shared/fixednavbar"
     = yield 
-    %footer.container.text-center
+    %footer.container-fluid.text-center
+      - if notice
+        %p.alert.alert-success= notice
+      - if alert
+        %p.alert.alert-danger= alert
+    =render "fixednavbar"
       .strong
         %p
           %strong @Copyright Corporate Catering
+
