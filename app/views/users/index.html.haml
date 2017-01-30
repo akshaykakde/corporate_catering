@@ -42,10 +42,11 @@
                                 %td
                                   .radio
                                     %label
-                                      %input#menu.name{:name => "menuRadios", :type => "radio", :value => menu.name}
+                                      %input#menu.name{:name => "menu_selected", :type => "radio", :value => menu.id}
+                                      =f.hidden_field :menu_selected, :value => menu.id
                                 %td=menu.name 
                                 %td=menu.price 
-                                =f.hidden_field :vendors_selected, :value => v.id
+                                
                             .row
                               .col-md-3
                               .col-md-3

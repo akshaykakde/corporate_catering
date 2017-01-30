@@ -15,6 +15,11 @@
           %a{:href => "#"} Contact
       %ul.nav.navbar-nav.navbar-right
         %li
-          %a{:href => "#"}
-            %span.glyphicon.glyphicon-log-in
-            Login
+          - if !user_signed_in?
+            %a{:href => new_user_session_path}
+              %span.glyphicon.glyphicon-log-in
+              Login
+          - if user_signed_in?
+            = link_to destroy_user_session_path, method: :delete do 
+              %span.glyphicon.glyphicon-log-out
+              Logout

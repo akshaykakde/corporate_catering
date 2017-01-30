@@ -16,7 +16,7 @@ Rails.application.routes.draw do
     resources :orders
   end
 
-  post 'users/place_orders' => 'users#place_orders', :as => 'place_orders'
+  post 'orders/place_orders' => 'orders#place_orders', :as => 'place_orders'
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root to: 'home#index'
