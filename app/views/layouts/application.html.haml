@@ -10,10 +10,6 @@
     =render "shared/fixednavbar"
     = yield 
     %footer.container-fluid.text-center
-      - if notice
-        %p.alert.alert-success= notice
-      - if alert
-        %p.alert.alert-danger= alert
       .text-center
         .strong
           %p
