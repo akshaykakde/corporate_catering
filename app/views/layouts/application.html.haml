@@ -3,30 +3,23 @@
   %head
     %title CorporateCatering
     = csrf_meta_tags
-    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = stylesheet_link_tag     'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
   = stylesheet_link_tag "home"   
-  %body
-    =render "shared/fixednavbar"         
+  %body  
+
+    =render "shared/fixednavbar"
     - unless flash.empty?
       %script
         - flash.each do |f|
           - type = f[0].to_s.gsub('alert', 'error').gsub('notice', 'info')
           toastr['#{type}']('#{f[1]}');
-    = yield  
+                   
+
+    = yield 
+      
+
     %footer.container-fluid.text-center
       .strong
         %p
           %strong @Copyright Corporate Catering
-/ #login.modal.hide.fade.in
-/   .modal-header
-/     %button.close{"data-dismiss" => "modal"} x
-/     %h2 Sign in
-/   .modal-body
-/     - simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
-/       = f.input :email, required: false, autofocus: true
-/       = f.input :password, required: false
-/       = f.input :remember_me, as: :boolean if devise_mapping.rememberable?
-/       = f.button :submit, "Log in"
-/   .modal-footer
-/     = render "users/shared/links"
