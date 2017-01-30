@@ -1,5 +1,10 @@
 class OrdersController < ApplicationController
-
+  def index 
+    @emp_company_id =  current_user.company_id
+    @company = Company.find(@emp_company_id)
+    @company_vendors = @company.vendor_ids
+  end  
+   
   def place_orders
     p params[:menu_selected]
      

@@ -3,17 +3,22 @@
   %head
     %title CorporateCatering
     = csrf_meta_tags
-    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = stylesheet_link_tag     'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
   = stylesheet_link_tag "home"   
-  %body
-    =render "shared/fixednavbar"         
+  %body  
+
+    =render "shared/fixednavbar"
     - unless flash.empty?
       %script
         - flash.each do |f|
           - type = f[0].to_s.gsub('alert', 'error').gsub('notice', 'info')
           toastr['#{type}']('#{f[1]}');
-    = yield  
+                   
+
+    = yield 
+      
+
     %footer.container-fluid.text-center
       .strong
         %p
