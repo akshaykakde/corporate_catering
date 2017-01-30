@@ -4,13 +4,17 @@ git_source(:github) do |repo_name|
   repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?("/")
   "https://github.com/#{repo_name}.git"
 end
-
+gem "kaminari"
+gem "bootstrap-kaminari-views"
+gem "kaminari-mongoid"
+gem 'whenever', :require => false
+gem 'pry'
+gem 'toastr-rails'
 gem 'devise'
 gem 'devise_invitable'
 gem 'carrierwave', '~> 1.0'
 gem 'rubocop', '~> 0.47.1'  
 gem 'simple_form'
-gem 'bootstrap-sass', '~> 3.3.6'
 gem 'mongoid', '~> 6.0.0'
 gem 'haml-rails', '~> 0.9.0'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
@@ -19,6 +23,7 @@ gem 'rails', '~> 5.0.1'
 gem 'puma', '~> 3.0'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
+gem 'bootstrap-sass', '~>3.3.6'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .coffee assets and views
@@ -34,6 +39,7 @@ gem 'jbuilder', '~> 2.5'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 3.0'
 # Use ActiveModel has_secure_password
+
 # gem 'bcrypt', '~> 3.1.7'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
