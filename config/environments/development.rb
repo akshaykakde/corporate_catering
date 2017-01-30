@@ -6,6 +6,8 @@ Rails.application.configure do
   # every request. This slows down response time but is perfect for development
   # since you don't have to restart the web server when you make code changes.
   config.cache_classes = false
+  require_relative './../initializers/development_mail_interceptor'
+
 
   # Do not eager load code on boot.
   config.eager_load = false
@@ -32,21 +34,25 @@ Rails.application.configure do
 
   config.action_mailer.perform_caching = false
 
+
   config.action_mailer.delivery_method = :smtp
 
 
-  config.action_mailer.smtp_settings = {
-    address: "smtp.gmail.com",
-    port: 587,
-    domain: ENV["GMAIL_DOMAIN"],
-    authentication: "plain",
-    enable_starttls_auto: true,
-    user_name: ENV["GMAIL_USERNAME"],
-    password: ENV["GMAIL_PASSWORD"]
+  config.action_mailer.smtp_settings = 
+  {
+   address:              'smtp.gmail.com',
+   port:                 587,
+   domain:               'localhost',
+   user_name:            'bbhuvnaprabhu@gmail.com',
+   password:             'bhuvP101*',
+   authentication:       'plain',
+   enable_starttls_auto: true  
   }
-
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log
+  
+  ActionMailer::Base.register_interceptor(DevelopmentMailInterceptor)
+
 
   # Debug mode disables concatenation and preprocessing of assets.
   # This option may cause significant delays in view rendering with a large

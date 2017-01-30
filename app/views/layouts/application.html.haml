@@ -9,16 +9,17 @@
   %body  
 
     =render "shared/fixednavbar"
-    %footer.container.text-center
 
-      - if !user_signed_in?
-        %a{:href => new_user_session_path}
-          %span.glyphicon.glyphicon-log-in
-          Login
-      - if user_signed_in?
-        = link_to destroy_user_session_path, method: :delete do 
-          %span.glyphicon.glyphicon-log-out
-          Logout
+    - if !user_signed_in?
+      %a{:href => new_user_session_path}
+        %span.glyphicon.glyphicon-log-in
+        Login
+    - if user_signed_in?
+      = link_to destroy_user_session_path, method: :delete do 
+        %span.glyphicon.glyphicon-log-out
+        Logout
+ 
+
     = yield 
     %footer.container-fluid.text-center
       - if notice
