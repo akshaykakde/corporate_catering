@@ -49,10 +49,7 @@ class User
   validates :name, :role, :phone, presence: true
   validates :phone, :email, uniqueness: { case_sensitive: false }
   has_and_belongs_to_many :orders
-<<<<<<< HEAD
-  belongs_to :company
-=======
+
   belongs_to :company 
->>>>>>> 718bd52e030f13a447d3d5dc789505045f27853f
   #attr_accessible :name, :phone, :role, :email, :password, :password_confirmation, :remember_me
 end

@@ -10,6 +10,8 @@
           =simple_form_for :vendor, url: select_vendors_path do |f|
             .col-md-3.col-sm-6
               .thumbnail.some{:style => "height: 250px"}
+                p v.logo
+                p "++++++++++++++"
                 =image_tag(v.logo, alt:"Vendor Logo", class:"image")
                 .caption
                   %h4
