@@ -1,5 +1,6 @@
 class VendorsController < ApplicationController
 	def show
+
 	end	
 
 	def index
@@ -8,11 +9,12 @@ class VendorsController < ApplicationController
 
   def select_vendors
     #puts params
-    @company_temp=Company.last
-    #p "=========================="
+    @company=Company.find(current_user.company_id)
+    p "-=============="
+    p @company
     p params[:vendor][:vendors_selected]
-    if @company_temp.vendors << Vendor.find(params[:vendor][:vendors_selected])
-      #redirect to HR Dashboard
+    if @company.vendors << Vendor.find(params[:vendor][:vendors_selected])
+      # redirect to 
     else
       render vendors_path  
     end  

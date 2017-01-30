@@ -8,7 +8,7 @@ class OrdersController < ApplicationController
       @order.datetime = Time.now
       @order.save!
       @order.menu_items <<  @menu
-      p @order.menu_items
+      @order.users << User.find(current_user.id)
     end 
     @orders = Order.all
   end 

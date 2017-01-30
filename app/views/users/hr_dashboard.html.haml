@@ -6,5 +6,11 @@
         = link_to image_tag("employee_icon.png", height: '80%' , width: '80%'), "#"
       .col-md-2
       .col-md-4
-        = link_to image_tag("sq_vendors.png", height: '80%', width: '80%'), "#"
+        = link_to image_tag("sq_vendors.png", height: '80%', width: '80%'), controller: "vendors",  action: "index"
       .col-md-1
+
+    .row
+      .col-md-4
+      .col-md-4
+        = link_to image_tag("place_order.png", height: '80%' , width: '80%'), controller: "users",  action: "index"
+      .col-md-4

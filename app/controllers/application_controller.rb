@@ -6,7 +6,7 @@ class ApplicationController < ActionController::Base
     if(current_user.role == "hr")
       users_hr_dashboard_path
     else
-      root_path
+      users_path
     end
   end
 

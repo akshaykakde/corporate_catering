@@ -1,20 +1,6 @@
-%h1 Orders
-%table.table-bordered
-  %tbody
-    %tr
-      %th Order Id:
-      / %th Time:
-      %th Menu :
-      / %th Price :
-      / %th User name: 
-    - @orders.each do |o|
-      %tr
-      %td= o.id
-      / %td= o.datetime
-      %td= @menu.name
-      / %td= @menu.price
-      / %td= "current user"
-
-    
-
-    
+%h1.text-center.some{:style=> "color: red"}
+  ="Thanks for Placing your order !!!!"
+  %br
+  %h2.text-center
+    ="Your order ID is:" 
+    = @order.id

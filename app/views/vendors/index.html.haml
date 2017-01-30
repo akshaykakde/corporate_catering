@@ -4,6 +4,9 @@
     Available Vendor
     %small Select MenuItems
     .container
+      .btn.btn-default.pull-right.btn-lg
+        =link_to "Back", controller: "users" ,action: "hr_dashboard"
+      %br  
       .row
       %div.some{:style => "padding: 204*406"}
         - @vendors.each do |v|
