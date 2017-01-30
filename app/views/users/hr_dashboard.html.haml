@@ -1,20 +1,10 @@
-/ !!!
-/ %html{:lang => "en"}
-/   %head
-/     %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
-/     %title Bootstrap Example
-/     %meta{:charset => "utf-8"}/
-/     %meta{:content => "width=device-width, initial-scale=1", :name => "viewport"}/
-/     %link{:href => "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css", :rel => "stylesheet"}/
-/     %script{:src => "https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"}
-/     %script{:src => "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"}
 %body
   .container
     .row
       .col-md-1
       .col-md-4
-        = image_tag("Employee.png", height: '80%' , width: '80%')
+        = link_to image_tag("employee_icon.png", height: '80%' , width: '80%'), "#"
       .col-md-2
       .col-md-4
-        = image_tag("vendor.png", height: '100%', width: '90%')
+        = link_to image_tag("sq_vendors.png", height: '80%', width: '80%'), "#"
       .col-md-1
