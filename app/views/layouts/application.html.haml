@@ -1,41 +1,32 @@
 !!!
 %html
-  /= stylesheet_link_tag "home"   
   %head
     %title CorporateCatering
     = csrf_meta_tags
     = stylesheet_link_tag     'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
   = stylesheet_link_tag "home"   
-  %body
-    %nav.navbar.navbar-inverse
-      .container
-        .navbar-header
-          %button.navbar-toggle{"data-target" => "#myNavbar", "data-toggle" => "collapse", :type => "button"}
-            %span.icon-bar
-            %span.icon-bar
-            %span.icon-bar
-          %a.navbar-brand{:href => "#"}
-          = image_tag "logo.png"
-        #myNavbar.collapse.navbar-collapse
-          %ul.nav.navbar-nav
-            %li.active
-              %a{:href => "#"} Home
-            %li
-              %a{:href => '#'} Contact
-          %ul.nav.navbar-nav.navbar-right
-            %li
-              %a{:href => "#"}
-                %span.glyphicon.glyphicon-log-in
-                Login
-    .container
-      .row
-        .col-sm-12
-          = yield 
+  %body  
 
     =render "shared/fixednavbar"
     %footer.container.text-center
-      .strong
-        %p
-          %strong @Copyright Corporate Catering
+
+      - if !user_signed_in?
+        %a{:href => new_user_session_path}
+          %span.glyphicon.glyphicon-log-in
+          Login
+      - if user_signed_in?
+        = link_to destroy_user_session_path, method: :delete do 
+          %span.glyphicon.glyphicon-log-out
+          Logout
+    = yield 
+    %footer.container-fluid.text-center
+      - if notice
+        %p.alert.alert-success= notice
+      - if alert
+        %p.alert.alert-danger= alert
+      .text-center
+        .strong
+          %p
+            %strong @Copyright Corporate Catering
 

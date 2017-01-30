@@ -3,12 +3,29 @@ class ApplicationController < ActionController::Base
   helper_method :current_user, :logged_in?
 
   def current_user
-    @current_user ||= User.find_by_id(session[:user])
+    @current_user ||= User.find_by(session[:user])
   end
 
   def logged_in?
     current_user != nil
   end
 
+  before_filter :configure_permitted_parameters, if: :devise_controller?
+  def after_sign_in_path_for(resource)
+    if resource.role == 'hr'
+      users_hr_dashboard_path
+    else
+      current_user_path
+    end
+  end
 
+  def configure_permitted_parameters
+    devise_parameter_sanitizer.permit(:invite, keys: [:name, :phone, :email, :role])
+  end
+
+  private 
+
+  def authenticate_inviter!
+    current_user
+  end
 end

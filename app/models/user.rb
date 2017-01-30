@@ -2,8 +2,9 @@ class User
   include Mongoid::Document
   # Include default devise modules. Others available are:
   # :registerable, :confirmable, :lockable, :timeoutable and :omniauthable
-  devise :database_authenticatable, 
-         :recoverable, :rememberable, :trackable, :validatable, :confirmable,:registerable
+
+  devise :invitable, :database_authenticatable, 
+         :recoverable, :rememberable, :trackable, :validatable, :confirmable
 
   ## Database authenticatable
   field :email,              type: String, default: ""
@@ -28,6 +29,15 @@ class User
   field :confirmation_sent_at, type: Time
   field :unconfirmed_email,    type: String # Only if using reconfirmable
 
+  ## Invitable
+  field :invitation_token, type: String
+  field :invitation_created_at, type: Time
+  field :invitation_sent_at, type: Time
+  field :invitation_accepted_at, type: Time
+  field :invitation_limit, type: Integer
+
+  index( {invitation_token: 1}, {:background => true} )
+  index( {invitation_by_id: 1}, {:background => true} )
   ## Lockable
   # field :failed_attempts, type: Integer, default: 0 # Only if lock strategy is :failed_attempts
   # field :unlock_token,    type: String # Only if unlock strategy is :email or :both
@@ -41,8 +51,7 @@ class User
 
 
   validates :name, :active,  :role, :phone_no, presence: true
-  field :phone, type: Integer
-  validates :phone, :email, uniqueness: { case_sensitive: false }
+  validates :phone_no, :email, uniqueness: { case_sensitive: false }
   has_and_belongs_to_many :orders
   belongs_to :company 
 

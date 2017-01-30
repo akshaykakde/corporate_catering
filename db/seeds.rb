@@ -1,9 +1,9 @@
 
-   company1 = Company.find_or_create_by!({ name: "Josh Software", email: "all@joshsoftware.com", phone_no: 9867542190 })
-   company2 = Company.find_or_create_by!({ name: "Veritas", email: "all@veritas.com", phone_no: 9867542195 })
-   company3 = Company.find_or_create_by!({ name: "Pubmatic", email: "all@pubmatic.com", phone_no: 9867542196 })
-   company4 = Company.find_or_create_by!({ name: "Symantec", email: "all@symantec.com", phone_no: 9867542197 })
-   company5 = Company.find_or_create_by!({ name: "Agrostar", email: "all@agrostar.com", phone_no: 9867542198 })
+   company1 = Company.find_or_create_by!({ name: "Josh Software", email: "all@joshsoftware1.com", phone_no: 9867542190 })
+   company2 = Company.find_or_create_by!({ name: "Veritas", email: "all@veritas1.com", phone_no: 9867542195 })
+   company3 = Company.find_or_create_by!({ name: "Pubmatic", email: "all@pubmatic1.com", phone_no: 9867542196 })
+   company4 = Company.find_or_create_by!({ name: "Symantec", email: "all@symantec1.com", phone_no: 9867542197 })
+   company5 = Company.find_or_create_by!({ name: "Agrostar", email: "all@agrostar1.com", phone_no: 9867542198 })
 
    company1.create_address({ house_no: "GHIB92", locality: "kupwad", city: "Sangli", state: "Maharashtra", pincode: 416415 }) if company1.address.blank?
    company2.create_address({ house_no: "WNIB42", locality: "Kharadi", city: "Panji", state: "Goa", pincode: 411045 }) if company2.address.blank?
@@ -23,24 +23,29 @@
    vendor4.addresses.find_or_create_by({ house_no: 'WYKJK3', locality: 'Majage Nagar', city: "Pune", state: "Maharashtra", pincode: 411045 })
    vendor5.addresses.find_or_create_by({ house_no: 'WNIB43', locality: 'Vishrambag', city: "Solapur", state: "Maharashtra", pincode: 418945 })
 
-   user1 = User.find_or_create_by!({ name: "Ankit Sharma", email: "ankit@gmail.com", phone_no: 9867542191,company_id: company1.id,active: true,role: "Employee",password: "12345fdfd" })
-   user2 = User.find_or_create_by!({ name: "Sanjeev Nath", email: "sanjeev@gmail.com", phone_no: 9867542196 ,active: true,role: "Employee",company_id: company2.id,password: "heyyfddo"})
-   user3 = User.find_or_create_by!({ name: "Sapna Kumari", email: "sapna@gmail.com", phone_no: 9867542199,active: true,role: "Employee",company_id: company3.id ,password: "yesmandfdf"})
-   user4 = User.find_or_create_by!({ name: "Namrata Bhat", email: "nambhat@gmail.com", phone_no: 9867542197,active: true,role: "Employee",company_id: company4.id,password: "23456777" })
-   user5 = User.find_or_create_by!({ name: "Deepak Sharma", email: "deepu@gmail.com", phone_no: 9867542190 ,active: true,role: "Employee",company_id: company4.id,password: "pjoonefdf"})    
-
+   # user1 = User.find_or_create_by
+   # user2 = User.find_or_create_by({ name: "Sanjeev Nath", email: "sanjeev@gmail.com", phone_no: 9867542196 ,active: true,role: "Employee",company_id: company2.id,password: "heyyfddo"}).save!
+   # user3 = User.find_or_create_by!({ name: "Sapna Kumari", email: "sapna@gmail.com", phone_no: 9867542199,active: true,role: "Employee",company_id: company3.id ,password: "yesmandfdf"})
+   # user4 = User.find_or_create_by!({ name: "Namrata Bhat", email: "nambhat@gmail.com", phone_no: 9867542197,active: true,role: "Employee",company_id: company4.id,password: "23456777" })
+   # user5 = User.find_or_create_by!({ name: "Deepak Sharma", email: "deepu@gmail.com", phone_no: 9867542190 ,active: true,role: "Employee",company_id: company4.id,password: "pjoonefdf"})    
+   user1 = company1.users.find_or_create_by({ name: "Sanjeev Nath", email: "sanjeev@gmail.com", phone_no: 9867542196 ,active: true,role: "Employee",password: "heyyfddo"})
    user1.create_address({ house_no: "GHIB94", locality: "kupwad", city: "Sangli", state: "Maharashtra", pincode: 416415 }) if user1.address.blank?
+   p "company2", company2
+   user2 = company2.users.find_or_create_by(name: "Ankit Sharma", email: "bhuvna@joshsoftware.com", phone_no: 9867542191, active: true,role: "hr",password: "12345fdfd")
+   p "user", user2
    user2.create_address({ house_no: "WNIB44", locality: "Kharadi", city: "Panji", state: "Goa", pincode: 411045 }) if user2.address.blank?
-   user3.create_address({ house_no: "WNk084", locality: "Aagarkar Nagar", city: "Indore", state: "Madhya Pradesh", pincode: 419045 }) if user3.address.blank?
-   user4.create_address({ house_no: "WYKJK4", locality: "Majage Nagar", city: "Pune", state: "Maharashtra", pincode: 411045 }) if user4.address.blank?
-   user5.create_address({ house_no: "WNIB44", locality: "Vishrambag", city: "Solapur", state: "Maharashtra", pincode: 418945 }) if user5.address.blank?
+   
+   # user2.create_address({ house_no: "WNIB44", locality: "Kharadi", city: "Panji", state: "Goa", pincode: 411045 }) if user2.address.blank?
+   # user3.create_address({ house_no: "WNk084", locality: "Aagarkar Nagar", city: "Indore", state: "Madhya Pradesh", pincode: 419045 }) if user3.address.blank?
+   # user4.create_address({ house_no: "WYKJK4", locality: "Majage Nagar", city: "Pune", state: "Maharashtra", pincode: 411045 }) if user4.address.blank?
+   # user5.create_address({ house_no: "WNIB44", locality: "Vishrambag", city: "Solapur", state: "Maharashtra", pincode: 418945 }) if user5.address.blank?
 
    
    menuarray= [{name:"Veg Biryani", price:140, veg:true, image:"foodpandamenu1.jpg"}, {name:"Thaali", price:60, veg:false, image:"foodpandamenu2.jpg"},
                {name:"Burger", price:80, veg:false, image:"foodpandamenu3.jpg"},{name:"Chicken Chilly", price:140, veg:true, image:"foodpandamenu4.jpg"},
                {name:"Sweet Dish", price:150, veg:true, image:"foodpandamenu5.jpg"}]
    menuarray.each do |menu|
-      vendor1.menu_items.find_or_create_by(menu)
+      vendor1.menu_items.find_or_create_by(menu).save!
    end
   
    menuarray2=[{name:"Paneer Paratha",price:60,veg:true, image:"paratha1.jpg"}, {name:"Paratha Sauce", price:25, veg:false, image:"paratha2.jpg"},
