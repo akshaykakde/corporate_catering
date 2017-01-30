@@ -1,0 +1,27 @@
+%ul.pager
+  .row
+    .col-md-2
+      %li
+        %a{:href =>company_users_path} Back
+%br
+%br
+%br
+.container-fluied
+  %table.table.table-fixed{:border =>3,:align => "center",:style=>"width:50%"}
+    .table-hover
+    
+      %tbody
+        %tr
+          %th 
+            .text-center
+              NAME:
+          %th 
+            .text-center
+              STATUS
+          %th 
+            .text-center
+              ACTION
+          =render "commonindex" ,object: @user, as: 'user'  
+
+.text-center
+  = paginate @users, :theme =>'twitter-bootstrap-3'
