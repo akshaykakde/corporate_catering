@@ -3,6 +3,7 @@
 class Company
   require 'emailvalidator'
   include Mongoid::Document
+  include Mongoid::Attributes::Dynamic
   field :name, type: String
   field :phone_no, type: Integer
   field :email, type: String

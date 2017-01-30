@@ -5,6 +5,7 @@ class User
   devise :invitable, :database_authenticatable, 
          :recoverable, :rememberable, :trackable, :validatable, :confirmable
 
+  before_validation :insert_company_id
   ## Database authenticatable
   field :email,              type: String, default: ""
   field :encrypted_password, type: String, default: ""
@@ -56,5 +57,10 @@ class User
 
   has_and_belongs_to_many :orders
   belongs_to :company 
-  #attr_accessible :name, :phone, :role, :email, :password, :password_confirmation, :remember_me
+  # attr_accessible :name, :phone, :role, :email, :password, :password_confirmation, :remember_me
+
+  def insert_company_id
+    ur = self.invited_by_id
+    self.company_id = User.find_by(:_id => ur).company_id
+  end
 end
