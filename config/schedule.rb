@@ -24,7 +24,5 @@
 
 
 every 1.minute do
-  runner 'UserMailer.account.deliver_now'
-  #command "bin/rails runner -e development 'UserMailer.account.deliver_now'"
-  command "echo 'hello'"
+  runner "UserMailer.account.deliver_now"
 end

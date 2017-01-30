@@ -9,6 +9,9 @@ gem "bootstrap-kaminari-views"
 gem "kaminari-mongoid"
 gem 'whenever', :require => false
 gem 'pry'
+
+
+gem 'toastr-rails'
 gem 'devise'
 gem 'devise_invitable'
 gem 'carrierwave', '~> 1.0'
