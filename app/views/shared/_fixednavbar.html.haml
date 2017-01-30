@@ -1,4 +1,4 @@
-%nav.navbar.navbar-inverse.navbar-fixed-top
+%nav.navbar.navbar-inverse
   .container
     .navbar-header
       %button.btn-primary.navbar-toggle{"data-target" => "#myNavbar", "data-toggle" => "collapse", :type => "button"}
@@ -15,11 +15,12 @@
           %a{:href => "#"} Contact
       %ul.nav.navbar-nav.navbar-right
         %li
-          - if !user_signed_in?
-            %a{:href => new_user_session_path}
-              %span.glyphicon.glyphicon-log-in
-              Login
           - if user_signed_in?
             = link_to destroy_user_session_path, method: :delete do 
               %span.glyphicon.glyphicon-log-out
               Logout
+          - else
+            %a{:href => new_user_session_path}
+              %span.glyphicon.glyphicon-log-in
+              Login
+
