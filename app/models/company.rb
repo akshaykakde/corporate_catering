@@ -12,5 +12,7 @@ class Company
   validates :phone_no, numericality: { only_integer: true }
   validates :email, presence: true, email: true
 
+  has_and_belongs_to_many :vendors
   has_one :address, as: :location
+  has_many :users
 end
