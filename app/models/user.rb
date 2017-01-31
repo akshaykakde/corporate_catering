@@ -60,5 +60,6 @@ class User
 
   def insert_company_id
     self.company_id = User.find_by(:_id => self.invited_by_id).company_id
+    self.active = true
   end
 end
