@@ -6,6 +6,7 @@ class User
   devise :invitable, :database_authenticatable, 
          :recoverable, :rememberable, :trackable, :validatable, :confirmable
 
+  before_validation :insert_company_id
   ## Database authenticatable
   field :email,              type: String, default: ""
   field :encrypted_password, type: String, default: ""
@@ -49,15 +50,16 @@ class User
   field :phone_no, type: Integer
   field :active, type: Boolean
 
-
   validates :name, :active,  :role, :phone_no, presence: true
-  validates :phone_no, :email, uniqueness: { case_sensitive: false }
+  validates :name, case_sensitive: false
+  validates :phone_no, :email, uniqueness: { case_sensitive: false, scopes: :company_id }
   has_and_belongs_to_many :orders
   belongs_to :company 
 
-
   has_one :address, as: :location
 
-
-
+  def insert_company_id
+    self.company_id = User.find_by(:_id => self.invited_by_id).company_id
+    self.active = true
+  end
 end

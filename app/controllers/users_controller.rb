@@ -20,8 +20,6 @@ class UsersController < ApplicationController
 
   def self.send_mail
     UserMailer.account.deliver
-
-
   end
 
   def update
@@ -43,14 +41,11 @@ class UsersController < ApplicationController
   def edit
     @company = Company.find_by(id: params[:company_id])
     @user = User.find(params[:id])
-    
   end
 
   def index
-
     @company = Company.find_by(id: params[:company_id])
     @users = @company.users.page(params[:page]).per(1)
-    
   end 
 
   def show
@@ -60,7 +55,6 @@ class UsersController < ApplicationController
   end
 
   def search
-    
     @search_value = params[:search_value]
     @company = Company.find_by(id: params[:company_id])
     @users = @company.users.where(:name => /#{@search_value}/i).all.page(params[:page]).per(1)
@@ -70,7 +64,7 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:name,:email,:active,:role,:password)
+    params.require(:user).permit(:name, :phone_no, :email, :role)
   end
 
 

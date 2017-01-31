@@ -9,7 +9,7 @@
         .well
           - resource.class.invite_key_fields.each do |field|
             = f.input :name, required: false, autofocus: true
-            = f.input :phone, required: false
+            = f.input :phone_no, required: false
             = f.input :email, required: false
             = f.input :role, required: false
           = f.button :submit, t("devise.invitations.new.submit_button")
