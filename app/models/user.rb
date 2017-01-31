@@ -46,12 +46,12 @@ class User
   ##fields
   field :name, type: String
   field :role, type: String
-  field :phone_no, type: Integer
+  field :phone, type: Integer
   field :active, type: Boolean
 
 
-  validates :name, :active,  :role, :phone_no, presence: true
-  validates :phone_no, :email, uniqueness: { case_sensitive: false }
+  validates :name, :active,  :role, :phone, presence: true
+  validates :phone, :email, uniqueness: { case_sensitive: false }
   has_and_belongs_to_many :orders
 
   belongs_to :company 
@@ -62,4 +62,3 @@ class User
 
 
 end
-\
