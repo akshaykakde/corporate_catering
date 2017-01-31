@@ -2,13 +2,17 @@
 %br
 %br
 %h1.text-center EMPLOYEES
-.container-fluied
+%br
+%br
+%br
+.container
   .row
-    .col-md-9.col-sm-7
-    .col-md-3.col-sm-3
+    .col-md-4.col-sm-4
+    .col-md-4.col-sm-4
       %form{"accept-charset" => "UTF-8", :action => "users/search", :method => "get"}
         %input#q{:name => "search_value", :type => "text",:required => true,:placeholder => "Enter the name..."}
         %input{:name => "commit", :type => "submit", :value => "Search"}
+    .col-md-4.col-sm-4
 %br
 %br
 %br
@@ -27,7 +31,9 @@
         %th 
           .text-center
             ACTION
-        =render "commonindex" ,object: @user, as: 'user'  
+        / =render "commonindex" ,object: @user, as: 'user'
+        - @users.each do |user|
+          = render 'user_row', user: user  
 
 .text-center
   = paginate @users, :theme =>'twitter-bootstrap-3'

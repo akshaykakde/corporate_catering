@@ -23,6 +23,6 @@
 
 
 
-every 1.minute do
-  runner "UserMailer.account.deliver_now"
-end
+# every 1.minute do
+#   runner "UserMailer.account.deliver_now"
+# end

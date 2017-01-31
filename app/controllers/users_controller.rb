@@ -1,8 +1,8 @@
 class UsersController < ApplicationController
 
-  def self.send_mail
-    UserMailer.account.deliver
-  end
+  # def self.send_mail
+  #   UserMailer.account.deliver
+  # ends
 
   def update
     @company = Company.find_by(id: params[:company_id])
@@ -33,7 +33,6 @@ class UsersController < ApplicationController
   def show
     @company = Company.find_by(id: params[:company_id])
     @user = User.find_by(id: params[:id])
-    UserMailer.account_activation(@user).deliver
   end
 
   def search   

@@ -10,13 +10,11 @@ class VendorsController < ApplicationController
   def select_vendors
     #puts params
     @company=Company.find(current_user.company_id)
-    p "-=============="
-    p @company
-    p params[:vendor][:vendors_selected]
     if @company.vendors << Vendor.find(params[:vendor][:vendors_selected])
-      # redirect to 
+      #render "vendors/select_vendors"
+      flash[:notice] = "Vendor Successfully added !" 
     else
-      render vendors_path  
+      redirect_to vendors_path  
     end  
   end 
 
