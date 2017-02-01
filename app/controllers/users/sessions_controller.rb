@@ -13,7 +13,7 @@ class Users::SessionsController < Devise::SessionsController
     if(@user.role =="hr")
       redirect_to new_user_invitation_path
     else
-      render :action => "new"
+      vendor_path
     end
   end
 

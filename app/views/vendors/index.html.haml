@@ -4,6 +4,9 @@
     Available Vendor
     %small Select MenuItems
     .container
+      .btn.btn-default.pull-right.btn-lg
+        =link_to "Back", controller: "users" ,action: "hr_dashboard"
+      %br  
       .row
       %div.some{:style => "padding: 204*406"}
         - @vendors.each do |v|
@@ -20,6 +23,10 @@
                       .col-md-6
                         .btn
                           =f.button :submit,"Add"
+                          / .alert.alert-success.alert-dismissable
+                          /   %a.close{"aria-label" => "close", "data-dismiss" => "alert", :href => "#"} ×
+                          /   %strong Success!
+                          /   Vendor Added Successfully!
                       .col-md-6  
                         .btn.btn-default
                           =link_to "Show menu",'javascript:void(0)',{'data-target'=> '#' + v.name.gsub(" ","_"),'data-toggle' =>  "modal"}

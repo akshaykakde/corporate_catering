@@ -1,0 +1,37 @@
+%h1.text-center DETAILS
+
+%ul.pager
+  .row
+    .col-md-2
+      %li
+        %a{:href =>company_users_path} Back
+%table.table{:border =>3,:align => "center",:style=>"width:60%"}
+  
+  %tbody
+    %tr
+      %th 
+        .text-center 
+          NAME
+      %th 
+        .text-center
+          EMAIL
+      %th 
+        .text-center
+          PHONE NUMBER
+      %th 
+        .text-center
+          ACTIVE 
+      %tr
+        %td
+          .text-center
+            #{@user.name}
+        %td
+          .text-center
+            #{@user.email}
+        %td
+          .text-center
+            #{@user.phone}
+        %td
+          .text-center
+            #{@user.active}
+    
