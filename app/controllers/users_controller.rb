@@ -1,8 +1,31 @@
 class UsersController < ApplicationController
 
+
   # def self.send_mail
   #   UserMailer.account.deliver
   # ends
+
+  # def new
+  #   @company = Company.find_by(id: params[:company_id])
+  #   @user = @company.users.build
+  # end
+
+  # def create
+  #   @company = Company.find_by(id: params[:company_id])
+  #   @user = @company.users.create(user_params)
+  #   if @user.valid?
+  #     @user.save
+  #     redirect_to company_users_path
+  #   else
+  #     flash[:error]=  @user.errors.messages
+  #     render :new 
+  #   end
+  
+  # end
+
+  def self.send_mail
+    UserMailer.account.deliver
+  end
 
   def update
     @company = Company.find_by(id: params[:company_id])
@@ -22,7 +45,6 @@ class UsersController < ApplicationController
   def edit
     @company = Company.find_by(id: params[:company_id])
     @user = User.find(params[:id])
-    
   end
 
   def index
@@ -35,7 +57,7 @@ class UsersController < ApplicationController
     @user = User.find_by(id: params[:id])
   end
 
-  def search   
+  def search
     @search_value = params[:search_value]
     @company = Company.find_by(id: params[:company_id])
     @users = @company.users.where(:name => /#{@search_value}/i).all.page(params[:page]).per(1)
@@ -44,7 +66,7 @@ class UsersController < ApplicationController
 
   private
   def user_params
-    params.require(:user).permit(:name,:email,:active,:role,:password)
+    params.require(:user).permit(:name, :phone, :email, :role)
   end
 
 end

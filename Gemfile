@@ -9,15 +9,12 @@ gem "bootstrap-kaminari-views"
 gem "kaminari-mongoid"
 gem 'whenever', :require => false
 gem 'pry'
-
-
 gem 'toastr-rails'
 gem 'devise'
 gem 'devise_invitable'
 gem 'carrierwave', '~> 1.0'
 gem 'rubocop', '~> 0.47.1'  
 gem 'simple_form'
-gem 'bootstrap-sass', '~> 3.3.6'
 gem 'mongoid', '~> 6.0.0'
 gem 'haml-rails', '~> 0.9.0'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'

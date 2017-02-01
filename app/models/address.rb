@@ -11,5 +11,5 @@ class Address
   validates :house_no, :locality, :city, :pincode, :state, presence: true
   
   belongs_to :location, polymorphic: true
-  belongs_to :location, polymorphic: true
+  # belongs_to :location, polymorphic: true
 end

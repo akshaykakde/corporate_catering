@@ -12,6 +12,7 @@
       %form{"accept-charset" => "UTF-8", :action => "users/search", :method => "get"}
         %input#q{:name => "search_value", :type => "text",:required => true,:placeholder => "Enter the name..."}
         %input{:name => "commit", :type => "submit", :value => "Search"}
+        = link_to "Add Employee" , new_user_invitation_path
     .col-md-4.col-sm-4
 %br
 %br
